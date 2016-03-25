@@ -14,7 +14,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         self.view.backgroundColor=UIColor.greenColor()
 
-        var action=UIButton(frame: CGRectMake(100, 100, 60, 30))
+        let action=UIButton(frame: CGRectMake(100, 100, 60, 30))
         action.backgroundColor=UIColor.whiteColor()
         action.setTitle("Push", forState: UIControlState.Normal)
         action.setTitleColor(UIColor.blackColor(), forState: UIControlState.Normal)
@@ -25,7 +25,7 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
     }
     func ak(){
-        var sedView=SecondViewController();
+        let sedView=SecondViewController();
         self.navigationController!.pushViewController(sedView, animated: true)
     
     }

@@ -47,14 +47,14 @@ class LXYNavViewController: UINavigationController,UIGestureRecognizerDelegate {
         //}
         
     }
-    required init(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        var panGesture=UIPanGestureRecognizer(target: self, action:"handlePanGesture:")
+        let panGesture=UIPanGestureRecognizer(target: self, action:"handlePanGesture:")
         
         self.view.addGestureRecognizer(panGesture)
         self.navigationBar.hidden=true
@@ -67,7 +67,7 @@ class LXYNavViewController: UINavigationController,UIGestureRecognizerDelegate {
     
         if !(self.backgroundView != nil){
         
-            var frame:CGRect=self.view.frame
+            let frame:CGRect=self.view.frame
             self.backgroundView=UIView(frame: frame)
             self.backgroundView!.backgroundColor=UIColor.blackColor()
             //将view插入到窗口上，并且below低于self。view层
@@ -86,7 +86,7 @@ class LXYNavViewController: UINavigationController,UIGestureRecognizerDelegate {
         if (lastScreenShotView != nil){
           lastScreenShotView!.removeFromSuperview()
         }
-        var lastScreenShot:UIImage=self.screenShotsList.lastObject as! UIImage
+        let lastScreenShot:UIImage=self.screenShotsList.lastObject as! UIImage
         //把截图插入到背景的黑色背景下面
         self.lastScreenShotView=UIImageView(image: lastScreenShot)
         self.backgroundView!.insertSubview(lastScreenShotView!, belowSubview: blackMask!)
@@ -152,8 +152,8 @@ class LXYNavViewController: UINavigationController,UIGestureRecognizerDelegate {
         frame.origin.x = CGFloat(x)
         self.view.frame=frame
         
-        var scale:Float=(x/6400) + kScaleValue//缩放scale
-        var alpha:Float=0.4-(x/800);//透明度
+        let scale:Float=(x/6400) + kScaleValue//缩放scale
+        let alpha:Float=0.4-(x/800);//透明度
         
         lastScreenShotView!.transform=CGAffineTransformMakeScale(CGFloat(scale), CGFloat(scale))
         blackMask!.alpha=CGFloat(alpha)
@@ -162,7 +162,7 @@ class LXYNavViewController: UINavigationController,UIGestureRecognizerDelegate {
     func ViewRenderImage()->UIImage{//将页面截成一张图片
         UIGraphicsBeginImageContextWithOptions(self.view.bounds.size, self.view.opaque, 0.0)
         self.view.layer.renderInContext(UIGraphicsGetCurrentContext())
-        var img:UIImage=UIGraphicsGetImageFromCurrentImageContext()
+        let img:UIImage=UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         return img
     }
@@ -179,7 +179,7 @@ class LXYNavViewController: UINavigationController,UIGestureRecognizerDelegate {
                 
                 blackMask!.alpha=0
                 
-                var toView:UIView=viewController.view
+                let toView:UIView=viewController.view
                 self.view.addSubview(toView)
                 
                 var frame:CGRect=self.view.frame
@@ -225,7 +225,7 @@ class LXYNavViewController: UINavigationController,UIGestureRecognizerDelegate {
                     self.backgroundView!.hidden=true;
                     self.screenShotsList.removeLastObject()
             })
-            var viewcontrol=self.viewControllers as NSArray
+            let viewcontrol=self.viewControllers as NSArray
             popVC=viewcontrol.lastObject
             
         }else{

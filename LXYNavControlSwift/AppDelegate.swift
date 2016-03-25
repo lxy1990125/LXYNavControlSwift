@@ -16,8 +16,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         window=UIWindow(frame: UIScreen.mainScreen().bounds)
-        var view=ViewController.alloc()
-        var nav=LXYNavViewController(rootViewController:view)
+        let view=ViewController.alloc()
+        let nav=LXYNavViewController(rootViewController:view)
         self.window!.rootViewController=nav
         self.window!.makeKeyAndVisible()
         // Override point for customization after application launch.

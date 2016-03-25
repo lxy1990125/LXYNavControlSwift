@@ -13,7 +13,7 @@ class SecondViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor=UIColor.yellowColor()
-        var lable=UILabel(frame: CGRectMake(50, 100, 300, 20))
+        let lable=UILabel(frame: CGRectMake(50, 100, 300, 20))
         lable.text="Slide self to the right to back"
         self.view.addSubview(lable)
         
