@@ -3,10 +3,11 @@
 //  LXYNavControlSwift
 //
 //  Created by 李 欣耘 on 15/7/28.
-//  Copyright (c) 2015年 LXY. All rights reserved.
+//  Copyright (c) 2015年 lixinyun. All rights reserved.
 //
-//"!"表示这个可选变量存在，可以使用，如果用"!"访问不存在的可选变量会导致一些错误
-//"?"表示这个变量可能不存在，如果不存在，"?"所在语句后面的内容都不会执行
+//  "!"表示这个可选变量存在，可以使用，如果用"!"访问不存在的可选变量会导致一些错误
+//  "?"表示这个变量可能不存在，如果不存在，"?"所在语句后面的内容都不会执行
+//  https://github.com/lxy1990125/LXYNavControlSwift.git
 import UIKit
 import Foundation
 
@@ -54,7 +55,7 @@ class LXYNavViewController: UINavigationController,UIGestureRecognizerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let panGesture=UIPanGestureRecognizer(target: self, action:"handlePanGesture:")
+        let panGesture=UIPanGestureRecognizer(target: self, action:#selector(LXYNavViewController.handlePanGesture(_:)))
         
         self.view.addGestureRecognizer(panGesture)
         self.navigationBar.hidden=true
@@ -161,7 +162,7 @@ class LXYNavViewController: UINavigationController,UIGestureRecognizerDelegate {
     
     func ViewRenderImage()->UIImage{//将页面截成一张图片
         UIGraphicsBeginImageContextWithOptions(self.view.bounds.size, self.view.opaque, 0.0)
-        self.view.layer.renderInContext(UIGraphicsGetCurrentContext())
+        self.view.layer.renderInContext(UIGraphicsGetCurrentContext()!)
         let img:UIImage=UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         return img
